@@ -3,7 +3,8 @@
 
 #include "JSystem/JKernel/JKRDisposer/JKRDisposer.h"
 #include "dolphin/types.h"
-#include "global.h"
+#include "dolphin/os.h"
+#include "variables.h"
 
 typedef void (*JKRErrorHandler)(void*, u32, int);
 class JKRHeap : public JKRDisposer {

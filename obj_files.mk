@@ -1,6 +1,7 @@
 # Linker order for every file, passed to the Metrowerks linker.
 
 INIT_O_FILES := 						            \
+    $(BUILD_DIR)/src/init/init0.o \
     $(BUILD_DIR)/asm/init.o
 
 EXTAB_O_FILES :=                                    \

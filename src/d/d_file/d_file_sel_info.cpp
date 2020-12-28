@@ -1,6 +1,6 @@
 #include "d/d_file/d_file_sel_info/d_file_sel_info.h"
 #include "d/d_com/d_com_inf_game/d_com_inf_game.h"
-#include "global.h"
+#include "dolphin/os.h"
 
 asm dFile_info_c::dFile_info_c(JKRArchive*, u8) {
     nofralloc

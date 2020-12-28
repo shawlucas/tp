@@ -1,6 +1,6 @@
 #include "JSystem/JKernel/JKRThread/JKRThread.h"
 #include "JSystem/JKernel/JKRHeap/JKRHeap.h"
-#include "global.h"
+#include "dolphin/os.h"
 
 // #include "JSystem/JKernel/JKRThread/asm/func_802D1568.s"
 JKRThread::JKRThread(u32 stack_size, int message_count, int param_3) : mThreadListLink(this) {

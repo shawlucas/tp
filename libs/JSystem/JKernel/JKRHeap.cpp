@@ -1,5 +1,5 @@
 #include "JSystem/JKernel/JKRHeap/JKRHeap.h"
-#include "global.h"
+#include "dolphin/os.h"
 
 // #include "JSystem/JKernel/JKRHeap/asm/func_802CE138.s"
 JKRHeap::JKRHeap(void* data, u32 size, JKRHeap* parent, bool error_flag)
@@ -81,7 +81,7 @@ bool JKRHeap::initArena(char** memory, u32* size, int param_3) {
     if (low == high)
         return false;
 
-    ram = OSInitAlloc(low, high, param_3);
+    ram = (u32)OSInitAlloc((void *)low, (void *)high, param_3);
     ram_start = (ram + 0x1fU & 0xffffffe0);
     ram_end = (high & 0xffffffe0);
     lbl_80451384 = OS_GLOBAL_ADDR(void, 0x80000000);
@@ -89,8 +89,8 @@ bool JKRHeap::initArena(char** memory, u32* size, int param_3) {
     lbl_8045138C = (void*)ram_start;
     lbl_80451390 = (void*)ram_end;
     lbl_80451394 = OS_GLOBAL(u32, 0x80000028);
-    OSSetArenaLo(ram_end);
-    OSSetArenaHi(ram_end);
+    OSSetArenaLo((void *)ram_end);
+    OSSetArenaHi((void *)ram_end);
     *memory = (char*)ram_start;
     *size = ram_end - ram_start;
     return true;

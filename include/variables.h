@@ -1,4 +1,8 @@
+#ifndef __VARIABLES_H__
+#define __VARIABLES_H__
+
 #include "JSystem/JSupport/JSUList/JSUList.h"
+#include "global.h"
 
 extern float lbl_80451D5C;
 extern u8 lbl_80379234[0x64];
@@ -247,11 +251,12 @@ extern float lbl_80452BD8;
 extern float lbl_80452BDC;
 extern double lbl_80452BE0;
 extern u8 lbl_80450D64;
-struct unkEvent {  // figure out what this is later
+typedef struct unkEvent {  // figure out what this is later
     u8 unk0[0x235];
     u16 unk566;
     u8 unk567[0x439];
-};
+} unkEvent;
+
 extern unkEvent lbl_803A7288;
 extern u8 lbl_8037B0D0[0x8];
 
@@ -385,3 +390,5 @@ extern bool lbl_80451501;
 extern void* lbl_804514EC;  // JUTGamePad::C3ButtonReset::sCallback
 extern u32 lbl_804514F0;    // JUTGamePad::C3ButtonReset::sCallbackArg
 extern u32 lbl_803ECF00;
+
+#endif

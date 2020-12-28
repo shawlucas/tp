@@ -10,7 +10,7 @@ struct Vec {
 #include "dolphin/types.h"
 
 #include "functions.h"
-#include "os/OS.h"
+#include "dolphin/os.h"
 #include "variables.h"
 
 #endif

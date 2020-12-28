@@ -756,6 +756,8 @@ SECTIONS {
 "__vt__20J3DAnmVisibilityFull" = 0x803cf274;
 
 "__dt__7JKRFileFv" = 0x802D7B90;
+
+"Debug_BBA" = 0x804516D0;
 }
 FORCEACTIVE {
  checkStateCarry__7dBomb_cFv

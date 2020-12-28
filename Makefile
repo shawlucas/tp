@@ -10,7 +10,7 @@ TARGET := dolzel2
 
 BUILD_DIR := build/$(TARGET)
 
-SRC_DIRS := $(shell find src/ libs/ -type f -name '*.cpp')
+SRC_DIRS := $(shell find src/ -type d) $(shell find libs/ -type d)
 ASM_DIRS := $(shell find asm/ -type f -name '*.s')
 
 # Inputs
@@ -53,8 +53,11 @@ PYTHON  := python3
 POSTPROC := tools/postprocess.py
 
 # Options
-INCLUDES := -i include -i include/dolphin/ -i src
+INCLUDES := -i include -i include/dolphin -i src
 
+# Check code syntax with host compiler
+CHECK_WARNINGS := -Wall -Wextra -Wno-format-security -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-variable -Wno-missing-braces -Wno-int-conversion
+CC_CHECK   := g++ -fno-builtin -fsyntax-only -fsigned-char -std=gnu++98 -D__cplusplus -D NON_MATCHING -Iinclude -Isrc -include $(CHECK_WARNINGS)
 # Assembler flags
 ASFLAGS := -mgekko -I include
 
@@ -115,6 +118,9 @@ $(BUILD_DIR)/%.o: %.cpp
 	$(CC) $(CFLAGS) -c -o $@ $<
 	# TODO: See if this is necessary after actually adding some C code
 	# $(PYTHON) $(POSTPROC) $(PROCFLAGS) $@
+
+$(BUILD_DIR)/%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 ### Debug Print ###
 

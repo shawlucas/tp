@@ -1,5 +1,5 @@
 #include "JSystem/JKernel/JKRAramPiece/JKRAramPiece.h"
-#include "global.h"
+#include "dolphin/os.h"
 
 asm void JKRAramPiece::prepareCommand(int, u32, u32, u32, JKRAramBlock*, void (*)(u32)) {
     nofralloc
